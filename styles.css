@@ -27,12 +27,34 @@ nav {
   width: 100%;
   top: 0;
   z-index: 1000;
+  padding: 1rem 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1976d2;
+  text-decoration: none;
+  font-family: "Georgia", serif;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.logo:hover {
+  color: #2196f3;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
+  font-size: 1.1rem;
 }
 
 .nav-links a {
@@ -40,10 +62,38 @@ nav {
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #2196f3;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
   color: #2196f3;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
 }
 
 /* Hero section */
@@ -265,10 +315,6 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
   .hero h1 {
     font-size: 2.5rem;
   }
